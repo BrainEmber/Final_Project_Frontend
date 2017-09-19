@@ -13,6 +13,18 @@ this.getMusers = function(){
   }).then
     (response => {
       this.musers = response.data;
+      console.log(response.data);
+    }).catch(err => console.log(err));
+};
+
+this.getFusers = function(){
+  $http({
+    method: 'GET',
+    url: 'http://localhost:3000/fusers'
+  }).then
+    (response => {
+      this.fusers = response.data;
+      console.log(response.data);
     }).catch(err => console.log(err));
 };
 
@@ -31,6 +43,7 @@ this.getMusers = function(){
 
 
 this.getMusers();
+this.getFusers();
 
 // END CONTROLLER
 }])

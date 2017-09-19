@@ -7,8 +7,26 @@
 	<script type="text/javascript" src="app.js"></script>
   </head>
   <body ng-controller="mainController as ctrl">
+    <header>
+      <h1>Dating With Games</h1>
+    </header>
 
-    {{ctrl.musers}}
+
+    <div ng-repeat="muser in ctrl.musers">
+      <h3>{{muser.name}}</h3>
+      <p>Favorate Game: {{muser.game}}</p>
+      <p>Favorate Genera: {{muser.genera}}</p>
+      <p>Time Zone: {{muser.hours}}</p>
+      <br>
+    </div>
+
+    <div ng-repeat="fuser in ctrl.fusers">
+      <h3>{{fuser.name}}</h3>
+      <p>Favorate Game: {{fuser.game}}</p>
+      <p>Favorate Genera: {{fuser.genera}}</p>
+      <p>Time Zone: {{fuser.hours}}</p>
+      <br>
+    </div>
 
   </body>
 </html>
