@@ -4,7 +4,7 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  this.musers = [];
+
 
 this.getMusers = function(){
   $http({
@@ -30,7 +30,7 @@ this.getMusers = function(){
 
 
 
-
+this.getMusers();
 
 // END CONTROLLER
 }])
