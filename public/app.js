@@ -4,6 +4,26 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
+  this.url = 'http://localhost:2080';
+
+
+this.login = function(userPass) {
+       console.log(userPass);
+
+       $http({
+             method: 'POST',
+             url: this.url + '/musers/login',
+             data: { muser: { username: userPass.username, password: userPass.password }},
+           }).then(function(response) {
+             console.log(response);
+           });
+  }
+
+
+
+
+
+
 
 
 this.getMusers = function(){
@@ -42,8 +62,8 @@ this.getFusers = function(){
 
 
 
-this.getMusers();
-this.getFusers();
+// this.getMusers();
+// this.getFusers();
 
 // END CONTROLLER
 }])
