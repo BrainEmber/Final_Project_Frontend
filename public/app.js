@@ -4,7 +4,7 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  this.url = 'http://localhost:2080';
+  this.url = 'http://localhost:3000';
 
 
 this.login = function(userPass) {
