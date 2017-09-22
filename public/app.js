@@ -5,6 +5,7 @@ const app = angular.module("FinalProject", []);
 app.controller("mainController", ["$http", function($http){
 
   this.url = 'http://localhost:3000';
+  this.muser = {};
 
 
 this.login = function(userPass) {
@@ -15,8 +16,9 @@ this.login = function(userPass) {
              url: this.url + '/musers/login',
              data: { muser: { username: userPass.username, password: userPass.password }},
            }).then(function(response) {
+             this.user = response.data.muser.username;
              console.log(response);
-           });
+           }.bind(this));
   }
 
 
