@@ -20,6 +20,14 @@
 
     <p>Logged In User's Name: {{ctrl.muser.username}}</p>
 
+    <h4 ng-click="ctrl.getMusers()">Click to see secret stuff</h4>
+
+    <div> {{ctrl.error }}</div>
+
+    <div ng-repeat="muser in ctrl.musers">
+      <h1>{{muser.username}}</h1>
+    </div>
+
 
     <!-- <div ng-repeat="muser in ctrl.musers">
       <h3>{{muser.username}}</h3>
