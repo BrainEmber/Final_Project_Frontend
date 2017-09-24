@@ -95,23 +95,24 @@ this.getFusers = function(){
     }).catch(err => console.log(err));
 };
 
-// this.createMuser = function() {
-//   $http({
-//     method: 'POST',
-//     url: this.url + '/musers',
-//     dataType: 'json',
-//     data: {
-//       username : this.name,
-//       game : this.game,
-//       genera : this.genera,
-//       hours : this.hours,
-//       password : this.password,
-//     }
-//   }).then(response => {
-//     console.log(response);
-//     this.getMusers();
-//   }).catch(err => console.log(err))
-// }
+this.createMuser = function() {
+  $http({
+    method: 'POST',
+    url: this.url + '/musers',
+    dataType: 'json',
+    data: {
+      username : this.name,
+      game : this.game,
+      genera : this.genera,
+      hours : this.hours,
+      password : this.password,
+    }
+  }).then
+    (response => {
+    console.log(response);
+    this.getMusers();
+  }).catch(err => console.log(err))
+}
 
 
 

@@ -35,9 +35,14 @@
       <input type="submit"/>
     </form>
 
-    <!-- <form ng-submit="ctrl.createMuser()">
-
-    </form> -->
+    <form ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
+      <input type="text" ng-model="ctrl.username" placeholder="username">
+      <input type="text" ng-model="ctrl.password" placeholder="password">
+      <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
+      <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
+      <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
+      <input type="submit">
+    </form>
 
 
 
