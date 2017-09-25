@@ -4,7 +4,7 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  this.url = 'http://localhost:3000';
+  this.url = 'https://dating-game-api.herokuapp.com';
   this.muser = {};
   this.bog = "";
   this.show = true;
@@ -12,6 +12,7 @@ app.controller("mainController", ["$http", function($http){
   this.create = false;
   this.loginMuser = false;
   this.createMuserv = false;
+  this.updateMenu = false;
 
 
 //menu interactions
@@ -36,6 +37,10 @@ app.controller("mainController", ["$http", function($http){
     this.create = false;
   }
 
+  this.changeUpdateMenu = function() {
+    this.updateMenu = true;
+  }
+
 
 
 //devolopment
@@ -52,6 +57,7 @@ this.mlogin = function(userPass) {
              this.muser = response.data.muser;
              localStorage.setItem('token', JSON.stringify(response.data.token));
              console.log(response);
+             this.getMusers();
            }.bind(this));
   }
 
@@ -124,6 +130,38 @@ this.createMuser = function() {
     console.log(response);
     this.getMusers();
   }).catch(err => console.log(err))
+};
+
+
+this.removeMuser = function(id) {
+  $http({
+    method: 'DELETE',
+    url: this.url + '/musers/' + id
+  }).then
+    (response => {
+      console.log(response);
+      this.getMusers();
+    }).catch(err => console.log(err));
+};
+
+
+this.updateMuser = function(id) {
+  $http({
+    method: 'PUT',
+    url: this.url + '/musers/' + id,
+    dataType: 'json',
+    data: {
+      username : this.username,
+      game : this.game,
+      genera : this.genera,
+      hours : this.hours,
+      password : this.password,
+    }
+  }).then
+    (response => {
+      console.log(response);
+      this.getMusers();
+    }).catch(err => console.log(err))
 }
 
 
@@ -140,7 +178,7 @@ this.createMuser = function() {
 
 
 
-this.getMusers();
+// this.getMusers();
 // this.getFusers();
 
 // END CONTROLLER

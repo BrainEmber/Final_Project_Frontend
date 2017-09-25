@@ -49,7 +49,18 @@
       <p>Favorite Game: {{ctrl.muser.game}}</p>
       <p>Favorite Genera: {{ctrl.muser.genera}}</p>
       <p>Time Zone: {{ctrl.muser.hours}}</p>
-      <button type="button">Delete</button>
+      <button ng-click="ctrl.removeMuser(ctrl.muser.id)" type="button">Delete</button>
+      <button ng-click="ctrl.changeUpdateMenu()" type="button">Update Profile</button>
+
+      <form ng-if="ctrl.updateMenu" ng-submit="ctrl.updateMuser(username, password, game, genera, hours, ctrl.muser.id)">
+        <input type="text" ng-model="ctrl.username" value="ctrl.muser.username">
+        <input type="text" ng-model="ctrl.password">
+        <input type="text" ng-model="ctrl.game" value=""="ctrl.muser.game">
+        <input type="text" ng-model="ctrl.genera" value="ctrl.muser.genera">
+        <input type="text" ng-model="ctrl.hours" value="ctrl.muser.hours">
+        <input type="submit">
+
+      </form>
     </div>
 
 
