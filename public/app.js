@@ -10,6 +10,8 @@ app.controller("mainController", ["$http", function($http){
   this.show = true;
   this.login = false;
   this.create = false;
+  this.loginMuser = false;
+  this.createMuserv = false;
 
 
 //menu interactions
@@ -22,6 +24,16 @@ app.controller("mainController", ["$http", function($http){
   this.changeCreate = function() {
     this.create = true;
     this.show = false;
+  }
+
+  this.loginM = function() {
+    this.loginMuser = true;
+    this.login = false;
+  }
+
+  this.createM = function() {
+    this.createMuserv = true;
+    this.create = false;
   }
 
 
@@ -101,7 +113,7 @@ this.createMuser = function() {
     url: this.url + '/musers',
     dataType: 'json',
     data: {
-      username : this.name,
+      username : this.username,
       game : this.game,
       genera : this.genera,
       hours : this.hours,
@@ -128,7 +140,7 @@ this.createMuser = function() {
 
 
 
-// this.getMusers();
+this.getMusers();
 // this.getFusers();
 
 // END CONTROLLER

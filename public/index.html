@@ -16,12 +16,12 @@
       </div>
 
       <div ng-if="ctrl.login" class="LogInChosen">
-        <button type="button">Male</button>
+        <button ng-click="ctrl.loginM()" type="button">Male</button>
         <button type="button">Female</button>
       </div>
 
       <div ng-if="ctrl.create" class="CreateChosen">
-        <button type="button">Male</button>
+        <button ng-click="ctrl.createM()" type="button">Male</button>
         <button type="button">Female</button>
       </div>
 
@@ -29,13 +29,13 @@
     </header>
 
 
-    <form ng-submit="ctrl.mlogin(userPass)">
+    <form ng-if="ctrl.loginMuser" ng-submit="ctrl.mlogin(userPass)">
       <input type="text" ng-model="userPass.username" placeholder="username"/>
       <input type="password" ng-model="userPass.password" placeholder="password"/>
       <input type="submit"/>
     </form>
 
-    <form ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
+    <form ng-if="ctrl.createMuserv" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
       <input type="text" ng-model="ctrl.username" placeholder="username">
       <input type="text" ng-model="ctrl.password" placeholder="password">
       <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
@@ -44,18 +44,20 @@
       <input type="submit">
     </form>
 
+    <div>
+      <h1>Logged in User: {{ctrl.muser.username}}</h1>
+      <p>Favorite Game: {{ctrl.muser.game}}</p>
+      <p>Favorite Genera: {{ctrl.muser.genera}}</p>
+      <p>Time Zone: {{ctrl.muser.hours}}</p>
+      <button type="button">Delete</button>
+    </div>
 
-
-
-
-    <p>Logged In User's Name: {{ctrl.muser.username}}</p>
-
-    <h4 ng-click="ctrl.getMusers()">Click to see secret stuff</h4>
-
-    <div> {{ctrl.error }}</div>
 
     <div ng-repeat="muser in ctrl.musers">
       <h1>{{muser.username}}</h1>
+      <p>Facorite Game: {{muser.game}}</p>
+      <p>Favorite Genera: {{muser.genera}}</p>
+      <p>Time Zone: {{muser.hours}}</p>
     </div>
 
 
