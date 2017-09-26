@@ -16,6 +16,7 @@ app.controller("mainController", ["$http", function($http){
   this.updateMenu = false;
   this.loggedIn = false;
   const controller = this;
+  this.loginFuser = false;
 
 
 //menu interactions
@@ -44,9 +45,16 @@ app.controller("mainController", ["$http", function($http){
     this.updateMenu = true;
   }
 
+  this.loginF = function() {
+    this.loginFuser = true;
+    this.login = false;
+  }
+
 
 
 //devolopment
+
+// MUSER THINGS
 
 
 this.mlogin = function(userPass) {
@@ -63,25 +71,6 @@ this.mlogin = function(userPass) {
              this.getMusers();
            }.bind(this));
   }
-
-
-  // this.flogin = function(userPass) {
-  //        console.log(userPass);
-  //
-  //        $http({
-  //              method: 'POST',
-  //              url: this.url + '/fusers/login',
-  //              data: { muser: { username: userPass.username, password: userPass.password }},
-  //            }).then(function(response) {
-  //              this.fuser = response.data.fuser;
-  //              localStorage.setItem('token', JSON.stringify(response.data.token));
-  //              console.log(response);
-  //            }.bind(this));
-  //   }
-
-
-
-
 
 
 
@@ -103,18 +92,6 @@ this.mlogin = function(userPass) {
     }.bind(this));
   }
 
-
-
-this.getFusers = function(){
-  $http({
-    method: 'GET',
-    url: this.url + '/fusers'
-  }).then
-    (response => {
-      this.fusers = response.data;
-      console.log(response.data);
-    }).catch(err => console.log(err));
-};
 
 this.createMuser = function() {
   $http({
@@ -176,7 +153,47 @@ this.updateMuser = function(id) {
       console.log("anything", controller);
       this.getMusers();
     }).catch(err => console.log(err))
-}
+};
+
+
+// END MUSER THINGS
+
+// FUSER THINGS
+
+
+this.flogin = function(userPass) {
+       console.log(userPass);
+
+       $http({
+             method: 'POST',
+             url: this.url + '/fusers/login',
+             data: { fuser: { username: userPass.username, password: userPass.password }},
+           }).then(function(response) {
+             this.fuser = response.data.fuser;
+             localStorage.setItem('token', JSON.stringify(response.data.token));
+             console.log(response);
+             this.getFusers();
+           }.bind(this));
+  }
+
+
+
+  this.getFusers = function() {
+    $http({
+      url: this.url + '/fusers',
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    }).then(function(response) {
+      console.log(response);
+      if (response.data.status == 401) {
+          this.error = "Unauthorized";
+      } else {
+        this.fusers = response.data;
+      }
+    }.bind(this));
+  }
 
 
 
@@ -189,7 +206,7 @@ this.updateMuser = function(id) {
 
 
 
-
+// END FUSER THINGS
 
 
 // this.getMusers();

@@ -15,17 +15,31 @@
         <button ng-click="ctrl.changeCreate()" type="button">Create Profile</button>
       </div>
 
+      <div ng-if="ctrl.login" class="LogInChosen">
+        <button ng-click="ctrl.loginM()" type="button">Male</button>
+        <button ng-click="ctrl.loginF()" type="button">Female</button>
+      </div>
+
+      <div ng-if="ctrl.create" class="CreateChosen">
+        <button ng-click="ctrl.createM()" type="button">Male</button>
+        <button type="button">Female</button>
+      </div>
+
 
     </header>
 
 
-    <form ng-if="ctrl.login" ng-submit="ctrl.mlogin(userPass)">
+
+    <!-- MUSER THINGS  -->
+
+
+    <form ng-if="ctrl.loginMuser" ng-submit="ctrl.mlogin(userPass)">
       <input type="text" ng-model="userPass.username" placeholder="username"/>
       <input type="password" ng-model="userPass.password" placeholder="password"/>
       <input type="submit"/>
     </form>
 
-    <form ng-if="ctrl.create" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
+    <form ng-if="ctrl.createMuserv" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
       <input type="text" ng-model="ctrl.username" placeholder="username">
       <input type="text" ng-model="ctrl.password" placeholder="password">
       <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
@@ -53,6 +67,33 @@
       </form>
     </div>
 
+    <!-- END MUSER THINGS -->
+
+
+    <!-- FUSER THINGS -->
+
+    <form ng-if="ctrl.loginFuser" ng-submit="ctrl.flogin(userPass)">
+      <input type="text" ng-model="userPass.username" placeholder="username"/>
+      <input type="password" ng-model="userPass.password" placeholder="password"/>
+      <input type="submit"/>
+    </form>
+
+
+    <!-- END FUSER THINGS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div ng-repeat="muser in ctrl.musers">
       <h1>{{muser.username}}</h1>
@@ -62,21 +103,7 @@
     </div>
 
 
-    <!-- <div ng-repeat="muser in ctrl.musers">
-      <h3>{{muser.username}}</h3>
-      <p>Favorate Game: {{muser.game}}</p>
-      <p>Favorate Genera: {{muser.genera}}</p>
-      <p>Time Zone: {{muser.hours}}</p>
-      <br>
-    </div>
 
-    <div ng-repeat="fuser in ctrl.fusers">
-      <h3>{{fuser.username}}</h3>
-      <p>Favorate Game: {{fuser.game}}</p>
-      <p>Favorate Genera: {{fuser.genera}}</p>
-      <p>Time Zone: {{fuser.hours}}</p>
-      <br>
-    </div> -->
 
   </body>
 </html>
