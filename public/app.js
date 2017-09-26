@@ -19,6 +19,9 @@ app.controller("mainController", ["$http", function($http){
   this.loginFuser = false;
   this.createFuserv = false;
   this.updateMenuF = false;
+  this.MLogin = false;
+  this.FLogin = false;
+
 
 
 //menu interactions
@@ -60,6 +63,28 @@ app.controller("mainController", ["$http", function($http){
   this.changeUpdateMenuF = function() {
     this.updateMenuF = true;
     this.create = false;
+  }
+
+  this.toggleMLogin = function() {
+    this.MLogin = true;
+    // this.show = true;
+
+  }
+
+  this.toggleFLogin = function() {
+    this.FLogin = true;
+    // this.show = true;
+
+  }
+
+  this.reset = function() {
+    this.show = true;
+    this.createMuserv = false;
+    this.createFuserv = false;
+    this.Flogin = false;
+    this.Mlogin = false;
+    this.loginMuser = false;
+    this.loginFuser = false;
   }
 
 
