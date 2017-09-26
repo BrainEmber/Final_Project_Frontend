@@ -4,7 +4,8 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  this.url = 'https://dating-game-api.herokuapp.com';
+  // this.url = 'https://dating-game-api.herokuapp.com';
+  this.url = 'http://localhost:3000'
   this.muser = {};
   this.bog = "";
   this.show = true;
@@ -13,6 +14,8 @@ app.controller("mainController", ["$http", function($http){
   this.loginMuser = false;
   this.createMuserv = false;
   this.updateMenu = false;
+  this.loggedIn = false;
+  const controller = this;
 
 
 //menu interactions
@@ -134,18 +137,25 @@ this.createMuser = function() {
 
 
 this.removeMuser = function(id) {
+  console.log(id);
   $http({
     method: 'DELETE',
-    url: this.url + '/musers/' + id
+    url: this.url + '/musers/' + id,
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    }
   }).then
     (response => {
       console.log(response);
+      console.log("got to here");
       this.getMusers();
     }).catch(err => console.log(err));
 };
 
 
 this.updateMuser = function(id) {
+  console.log(id);
+  // console.log("This is the This", this);
   $http({
     method: 'PUT',
     url: this.url + '/musers/' + id,
@@ -160,6 +170,7 @@ this.updateMuser = function(id) {
   }).then
     (response => {
       console.log(response);
+      console.log("anything", controller);
       this.getMusers();
     }).catch(err => console.log(err))
 }
