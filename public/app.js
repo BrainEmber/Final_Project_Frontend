@@ -157,9 +157,12 @@ this.updateMuser = function(id) {
   console.log(id);
   // console.log("This is the This", this);
   $http({
-    method: 'PUT',
+    method: 'PATCH',
     url: this.url + '/musers/' + id,
     dataType: 'json',
+    headers: {
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+    },
     data: {
       username : this.username,
       game : this.game,
