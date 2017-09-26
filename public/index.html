@@ -22,7 +22,7 @@
 
       <div ng-if="ctrl.create" class="CreateChosen">
         <button ng-click="ctrl.createM()" type="button">Male</button>
-        <button type="button">Female</button>
+        <button ng-click="ctrl.createF()" type="button">Female</button>
       </div>
 
 
@@ -78,6 +78,15 @@
       <input type="submit"/>
     </form>
 
+    <form ng-if="ctrl.createFuserv" ng-submit="ctrl.createFuser(username, password, game, genera, hours)">
+      <input type="text" ng-model="ctrl.username" placeholder="username">
+      <input type="text" ng-model="ctrl.password" placeholder="password">
+      <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
+      <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
+      <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
+      <input type="submit">
+    </form>
+
 
     <!-- END FUSER THINGS -->
 
@@ -100,6 +109,13 @@
       <p>Facorite Game: {{muser.game}}</p>
       <p>Favorite Genera: {{muser.genera}}</p>
       <p>Time Zone: {{muser.hours}}</p>
+    </div>
+
+    <div ng-repeat="fuser in ctrl.fusers">
+      <h1>{{fuser.username}}</h1>
+      <p>Facorite Game: {{fuser.game}}</p>
+      <p>Favorite Genera: {{fuser.genera}}</p>
+      <p>Time Zone: {{fuser.hours}}</p>
     </div>
 
 

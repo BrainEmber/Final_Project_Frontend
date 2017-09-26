@@ -4,8 +4,8 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  this.url = 'https://dating-game-api.herokuapp.com';
-  // this.url = 'http://localhost:3000'
+  // this.url = 'https://dating-game-api.herokuapp.com';
+  this.url = 'http://localhost:3000'
   this.muser = {};
   this.bog = "";
   this.show = true;
@@ -17,6 +17,7 @@ app.controller("mainController", ["$http", function($http){
   this.loggedIn = false;
   const controller = this;
   this.loginFuser = false;
+  this.createFuserv = false;
 
 
 //menu interactions
@@ -48,6 +49,11 @@ app.controller("mainController", ["$http", function($http){
   this.loginF = function() {
     this.loginFuser = true;
     this.login = false;
+  }
+
+  this.createF = function() {
+    this.createFuserv = true;
+    this.create = false;
   }
 
 
@@ -193,7 +199,26 @@ this.flogin = function(userPass) {
         this.fusers = response.data;
       }
     }.bind(this));
-  }
+  };
+
+  this.createFuser = function() {
+    $http({
+      method: 'POST',
+      url: this.url + '/fusers',
+      dataType: 'json',
+      data: {
+        username : this.username,
+        game : this.game,
+        genera : this.genera,
+        hours : this.hours,
+        password : this.password,
+      }
+    }).then
+      (response => {
+      console.log(response);
+      this.getFusers();
+    }).catch(err => console.log(err))
+  };
 
 
 
