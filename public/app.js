@@ -223,6 +223,25 @@ this.flogin = function(userPass) {
 
 
 
+  this.removeFuser = function(id) {
+    console.log(id);
+    $http({
+      method: 'DELETE',
+      url: this.url + '/fusers/' + id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    }).then
+      (response => {
+        console.log(response);
+        console.log("got to here");
+        this.getFusers();
+      }).catch(err => console.log(err));
+  };
+
+
+
+
 
 
 

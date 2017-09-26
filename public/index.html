@@ -88,6 +88,27 @@
     </form>
 
 
+
+    <div>
+      <h1>Logged in User: {{ctrl.fuser.username}}</h1>
+      <p>Favorite Game: {{ctrl.fuser.game}}</p>
+      <p>Favorite Genera: {{ctrl.fuser.genera}}</p>
+      <p>Time Zone: {{ctrl.fuser.hours}}</p>
+      <button ng-click="ctrl.removeFuser(ctrl.fuser.id)" type="button">Delete</button>
+      <button ng-click="ctrl.changeUpdateMenuF()" type="button">Update Profile</button>
+
+      <form ng-if="ctrl.updateMenuF" ng-submit="ctrl.updateFuser(ctrl.fuser.id, username, password, game, genera, hours)">
+        <input type="text" ng-model="ctrl.username" value="ctrl.fuser.username">
+        <input type="text" ng-model="ctrl.password">
+        <input type="text" ng-model="ctrl.game" value=""="ctrl.fuser.game">
+        <input type="text" ng-model="ctrl.genera" value="ctrl.fuser.genera">
+        <input type="text" ng-model="ctrl.hours" value="ctrl.fuser.hours">
+        <input type="submit">
+
+      </form>
+    </div>
+
+
     <!-- END FUSER THINGS -->
 
 
