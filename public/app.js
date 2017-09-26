@@ -18,6 +18,7 @@ app.controller("mainController", ["$http", function($http){
   const controller = this;
   this.loginFuser = false;
   this.createFuserv = false;
+  this.updateMenuF = false;
 
 
 //menu interactions
@@ -53,6 +54,11 @@ app.controller("mainController", ["$http", function($http){
 
   this.createF = function() {
     this.createFuserv = true;
+    this.create = false;
+  }
+
+  this.changeUpdateMenuF = function() {
+    this.updateMenuF = true;
     this.create = false;
   }
 
@@ -237,6 +243,33 @@ this.flogin = function(userPass) {
         console.log("got to here");
         this.getFusers();
       }).catch(err => console.log(err));
+  };
+
+
+
+  this.updateFuser = function(id) {
+    console.log(id);
+    // console.log("This is the This", this);
+    $http({
+      method: 'PATCH',
+      url: this.url + '/fusers/' + id,
+      dataType: 'json',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: {
+        username : this.username,
+        game : this.game,
+        genera : this.genera,
+        hours : this.hours,
+        password : this.password,
+      }
+    }).then
+      (response => {
+        console.log(response);
+        console.log("anything", controller);
+        this.getFusers();
+      }).catch(err => console.log(err))
   };
 
 
