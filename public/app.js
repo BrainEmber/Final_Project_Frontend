@@ -4,8 +4,8 @@ const app = angular.module("FinalProject", []);
 
 app.controller("mainController", ["$http", function($http){
 
-  // this.url = 'https://dating-game-api.herokuapp.com';
-  this.url = 'http://localhost:3000'
+  this.url = 'https://dating-game-api.herokuapp.com';
+  // this.url = 'http://localhost:3000'
   this.muser = {};
   this.bog = "";
   this.show = true;
