@@ -15,27 +15,17 @@
         <button ng-click="ctrl.changeCreate()" type="button">Create Profile</button>
       </div>
 
-      <div ng-if="ctrl.login" class="LogInChosen">
-        <button ng-click="ctrl.loginM()" type="button">Male</button>
-        <button type="button">Female</button>
-      </div>
-
-      <div ng-if="ctrl.create" class="CreateChosen">
-        <button ng-click="ctrl.createM()" type="button">Male</button>
-        <button type="button">Female</button>
-      </div>
-
 
     </header>
 
 
-    <form ng-if="ctrl.loginMuser" ng-submit="ctrl.mlogin(userPass)">
+    <form ng-if="ctrl.login" ng-submit="ctrl.mlogin(userPass)">
       <input type="text" ng-model="userPass.username" placeholder="username"/>
       <input type="password" ng-model="userPass.password" placeholder="password"/>
       <input type="submit"/>
     </form>
 
-    <form ng-if="ctrl.createMuserv" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
+    <form ng-if="ctrl.create" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
       <input type="text" ng-model="ctrl.username" placeholder="username">
       <input type="text" ng-model="ctrl.password" placeholder="password">
       <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
