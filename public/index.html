@@ -99,11 +99,11 @@
       <button ng-click="ctrl.changeUpdateMenu()" type="button">Update Profile</button>
 
       <form ng-if="ctrl.updateMenu" ng-submit="ctrl.updateMuser(ctrl.muser.id, username, password, game, genera, hours)">
-        <input type="text" ng-model="ctrl.username" value="ctrl.muser.username">
-        <input type="text" ng-model="ctrl.password">
-        <input type="text" ng-model="ctrl.game" value=""="ctrl.muser.game">
-        <input type="text" ng-model="ctrl.genera" value="ctrl.muser.genera">
-        <input type="text" ng-model="ctrl.hours" value="ctrl.muser.hours">
+        Username: <input type="text" ng-model="ctrl.username" value="ctrl.muser.username">
+        Password: <input type="text" ng-model="ctrl.password">
+        Favorite Game: <input type="text" ng-model="ctrl.game" value=""="ctrl.muser.game">
+        Favorite Genera: <input type="text" ng-model="ctrl.genera" value="ctrl.muser.genera">
+        Time Zone: <input type="text" ng-model="ctrl.hours" value="ctrl.muser.hours">
         <input type="submit">
 
       </form>
@@ -127,11 +127,11 @@
       <button ng-click="ctrl.changeUpdateMenuF()" type="button">Update Profile</button>
 
       <form ng-if="ctrl.updateMenuF" ng-submit="ctrl.updateFuser(ctrl.fuser.id, username, password, game, genera, hours)">
-        <input type="text" ng-model="ctrl.username" value="ctrl.fuser.username">
-        <input type="text" ng-model="ctrl.password">
-        <input type="text" ng-model="ctrl.game" value=""="ctrl.fuser.game">
-        <input type="text" ng-model="ctrl.genera" value="ctrl.fuser.genera">
-        <input type="text" ng-model="ctrl.hours" value="ctrl.fuser.hours">
+        Username: <input type="text" ng-model="ctrl.username" value="ctrl.fuser.username">
+        Password: <input type="text" ng-model="ctrl.password">
+        Favorite Game: <input type="text" ng-model="ctrl.game" value=""="ctrl.fuser.game">
+        Facorite Genera: <input type="text" ng-model="ctrl.genera" value="ctrl.fuser.genera">
+        Time Zone: <input type="text" ng-model="ctrl.hours" value="ctrl.fuser.hours">
         <input type="submit">
 
       </form>
