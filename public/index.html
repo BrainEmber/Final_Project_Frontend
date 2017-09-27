@@ -155,14 +155,14 @@
 
 
     <div class="Muser" ng-repeat="muser in ctrl.musers">
-      <h1>{{muser.username}}</h1>
+      <h1><a href="http://steamcommunity.com/id/{{muser.username}}">{{muser.username}}</a></h1>
       <p>Facorite Game: {{muser.game}}</p>
       <p>Favorite Genera: {{muser.genera}}</p>
       <p>Time Zone: {{muser.hours}}</p>
     </div>
 
     <div class="Fuser" ng-repeat="fuser in ctrl.fusers">
-      <h1>{{fuser.username}}</h1>
+      <h1><a href="http://steamcommunity.com/id/{{fuser.username}}">{{fuser.username}}</a></h1>
       <p>Facorite Game: {{fuser.game}}</p>
       <p>Favorite Genera: {{fuser.genera}}</p>
       <p>Time Zone: {{fuser.hours}}</p>
