@@ -106,6 +106,7 @@ this.mlogin = function(userPass) {
              localStorage.setItem('token', JSON.stringify(response.data.token));
              console.log(response);
              this.getMusers();
+             this.getFusers();
            }.bind(this));
   }
 
@@ -145,7 +146,8 @@ this.createMuser = function() {
   }).then
     (response => {
     console.log(response);
-    this.getMusers();
+    // this.getMusers();
+    // this.getFusers();
   }).catch(err => console.log(err))
 };
 
@@ -163,6 +165,7 @@ this.removeMuser = function(id) {
       console.log(response);
       console.log("got to here");
       this.getMusers();
+      this.getFusers();
     }).catch(err => console.log(err));
 };
 
@@ -189,6 +192,7 @@ this.updateMuser = function(id) {
       console.log(response);
       console.log("anything", controller);
       this.getMusers();
+      this.getFusers();
     }).catch(err => console.log(err))
 };
 
@@ -210,6 +214,7 @@ this.flogin = function(userPass) {
              localStorage.setItem('token', JSON.stringify(response.data.token));
              console.log(response);
              this.getFusers();
+             this.getMusers();
            }.bind(this));
   }
 
@@ -247,7 +252,8 @@ this.flogin = function(userPass) {
     }).then
       (response => {
       console.log(response);
-      this.getFusers();
+      // this.getFusers();
+      // this.getMusers();
     }).catch(err => console.log(err))
   };
 
@@ -267,6 +273,7 @@ this.flogin = function(userPass) {
         console.log(response);
         console.log("got to here");
         this.getFusers();
+        this.getMusers();
       }).catch(err => console.log(err));
   };
 
@@ -294,6 +301,7 @@ this.flogin = function(userPass) {
         console.log(response);
         console.log("anything", controller);
         this.getFusers();
+        this.getMusers();
       }).catch(err => console.log(err))
   };
 

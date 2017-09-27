@@ -5,9 +5,13 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body ng-controller="mainController as ctrl">
     <header>
+      <div id="backgroundTintHeader">
+
+
       <h1>Dating With Games</h1>
 
       <div ng-if="ctrl.show" class="LogInOrCreate">
@@ -25,7 +29,58 @@
         <button ng-click="ctrl.createF()" type="button">Female</button>
       </div>
 
+<!-- Muser Header Things  -->
 
+<form ng-if="ctrl.loginMuser" ng-submit="ctrl.mlogin(userPass)">
+  <input type="text" ng-model="userPass.username" placeholder="username"/>
+  <input type="password" ng-model="userPass.password" placeholder="password"/>
+  <input ng-click="ctrl.toggleMLogin()" type="submit"/>
+  <button ng-click="ctrl.reset()" type="button">Back</button>
+</form>
+
+<form ng-if="ctrl.createMuserv" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
+  <input type="text" ng-model="ctrl.username" placeholder="username">
+  <input type="text" ng-model="ctrl.password" placeholder="password">
+  <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
+  <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
+  <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
+  <input type="submit">
+  <button ng-click="ctrl.reset()" type="button">Back</button>
+</form>
+
+
+
+<!-- End Muser Header Things -->
+
+<!--Fuser Header Things  -->
+
+<form ng-if="ctrl.loginFuser" ng-submit="ctrl.flogin(userPass)">
+  <input type="text" ng-model="userPass.username" placeholder="username"/>
+  <input type="password" ng-model="userPass.password" placeholder="password"/>
+  <input ng-click="ctrl.toggleFLogin()" type="submit"/>
+  <button ng-click="ctrl.reset()" type="button">Back</button>
+</form>
+
+<form ng-if="ctrl.createFuserv" ng-submit="ctrl.createFuser(username, password, game, genera, hours)">
+  <input type="text" ng-model="ctrl.username" placeholder="username">
+  <input type="text" ng-model="ctrl.password" placeholder="password">
+  <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
+  <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
+  <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
+  <input type="submit">
+  <button ng-click="ctrl.reset()" type="button">Back</button>
+</form>
+
+
+<!-- End Fuser Header Things -->
+
+
+
+
+
+
+
+    </div>
     </header>
 
 
@@ -33,24 +88,9 @@
     <!-- MUSER THINGS  -->
 
 
-    <form ng-if="ctrl.loginMuser" ng-submit="ctrl.mlogin(userPass)">
-      <input type="text" ng-model="userPass.username" placeholder="username"/>
-      <input type="password" ng-model="userPass.password" placeholder="password"/>
-      <input ng-click="ctrl.toggleMLogin()" type="submit"/>
-      <button ng-click="ctrl.reset()" type="button">Back</button>
-    </form>
 
-    <form ng-if="ctrl.createMuserv" ng-submit="ctrl.createMuser(username, password, game, genera, hours)">
-      <input type="text" ng-model="ctrl.username" placeholder="username">
-      <input type="text" ng-model="ctrl.password" placeholder="password">
-      <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
-      <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
-      <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
-      <input type="submit">
-      <button ng-click="ctrl.reset()" type="button">Back</button>
-    </form>
 
-    <div ng-if="ctrl.MLogin">
+    <div class="loggedInPerson" ng-if="ctrl.MLogin">
       <h1>Logged in User: {{ctrl.muser.username}}</h1>
       <p>Favorite Game: {{ctrl.muser.game}}</p>
       <p>Favorite Genera: {{ctrl.muser.genera}}</p>
@@ -74,26 +114,11 @@
 
     <!-- FUSER THINGS -->
 
-    <form ng-if="ctrl.loginFuser" ng-submit="ctrl.flogin(userPass)">
-      <input type="text" ng-model="userPass.username" placeholder="username"/>
-      <input type="password" ng-model="userPass.password" placeholder="password"/>
-      <input ng-click="ctrl.toggleFLogin()" type="submit"/>
-      <button ng-click="ctrl.reset()" type="button">Back</button>
-    </form>
-
-    <form ng-if="ctrl.createFuserv" ng-submit="ctrl.createFuser(username, password, game, genera, hours)">
-      <input type="text" ng-model="ctrl.username" placeholder="username">
-      <input type="text" ng-model="ctrl.password" placeholder="password">
-      <input type="text" ng-model="ctrl.game" placeholder="Favorite Game">
-      <input type="text" ng-model="ctrl.genera" placeholder="Favorite Genera">
-      <input type="text" ng-model="ctrl.hours" placeholder="Time Zone">
-      <input type="submit">
-      <button ng-click="ctrl.reset()" type="button">Back</button>
-    </form>
 
 
 
-    <div ng-if="ctrl.FLogin">
+
+    <div class="loggedInPerson" ng-if="ctrl.FLogin">
       <h1>Logged in User: {{ctrl.fuser.username}}</h1>
       <p>Favorite Game: {{ctrl.fuser.game}}</p>
       <p>Favorite Genera: {{ctrl.fuser.genera}}</p>
@@ -129,14 +154,14 @@
 
 
 
-    <div ng-repeat="muser in ctrl.musers">
+    <div class="Muser" ng-repeat="muser in ctrl.musers">
       <h1>{{muser.username}}</h1>
       <p>Facorite Game: {{muser.game}}</p>
       <p>Favorite Genera: {{muser.genera}}</p>
       <p>Time Zone: {{muser.hours}}</p>
     </div>
 
-    <div ng-repeat="fuser in ctrl.fusers">
+    <div class="Fuser" ng-repeat="fuser in ctrl.fusers">
       <h1>{{fuser.username}}</h1>
       <p>Facorite Game: {{fuser.game}}</p>
       <p>Favorite Genera: {{fuser.genera}}</p>
